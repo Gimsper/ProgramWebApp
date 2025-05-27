@@ -6,7 +6,7 @@ class ResultOperation {
 }
 
 export const getItems = async () => {
-    const result = new ResultOperation;
+    const result = new ResultOperation();
 
     await client({
         url: '/Item/GetAll',
@@ -21,7 +21,7 @@ export const getItems = async () => {
 }
 
 export const getItemById = async (id) => {
-    const result = new ResultOperation;
+    const result = new ResultOperation();
 
     await client({
         url: `/Item/GetById/?id=${id}`,
@@ -36,12 +36,22 @@ export const getItemById = async (id) => {
 }
 
 export const createItem = async (item) => {
-    const result = new ResultOperation;
+    const result = new ResultOperation();
+
+    const formData = new FormData();
+    for (const key in item) {
+        if (item.hasOwnProperty(key)) {
+            formData.append(key, item[key]);
+        }
+    }
 
     await client({
         url: '/Item/Add',
         method: 'POST',
-        data: item
+        data: formData,
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
     }).then(response => {
         result.data = response.data;
     }).catch(response => {
@@ -52,12 +62,22 @@ export const createItem = async (item) => {
 }
 
 export const updateItem = async (item) => {
-    const result = new ResultOperation;
+    const result = new ResultOperation();
+
+    const formData = new FormData();
+    for (const key in item) {
+        if (item.hasOwnProperty(key)) {
+            formData.append(key, item[key]);
+        }
+    }
 
     await client({
         url: '/Item/Update',
         method: 'PUT',
-        data: item
+        data: formData,
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
     }).then(response => {
         result.data = response.data;
     }).catch(response => {
@@ -68,7 +88,7 @@ export const updateItem = async (item) => {
 }
 
 export const deleteItem = async (id) => {
-    const result = new ResultOperation;
+    const result = new ResultOperation();
 
     await client({
         url: `/Item/Delete/?id=${id}`,

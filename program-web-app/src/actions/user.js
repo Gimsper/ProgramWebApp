@@ -6,7 +6,7 @@ class ResultOperation {
 }
 
 export const getUsers = async () => {
-    const result = new ResultOperation;
+    const result = new ResultOperation();
 
     await client({
         url: '/User/GetAll',
@@ -21,7 +21,7 @@ export const getUsers = async () => {
 }
 
 export const getUserById = async (id) => {
-    const result = new ResultOperation;
+    const result = new ResultOperation();
 
     await client({
         url: `/User/GetById/?id=${id}`,
@@ -36,7 +36,7 @@ export const getUserById = async (id) => {
 }
 
 export const createUser = async (item) => {
-    const result = new ResultOperation;
+    const result = new ResultOperation();
 
     await client({
         url: '/User/Add',
@@ -52,7 +52,7 @@ export const createUser = async (item) => {
 }
 
 export const loginUser = async (item) => {
-    const result = new ResultOperation;
+    const result = new ResultOperation();
 
     await client({
         url: '/User/Login',
@@ -68,7 +68,7 @@ export const loginUser = async (item) => {
 }
 
 export const updateUser = async (item) => {
-    const result = new ResultOperation;
+    const result = new ResultOperation();
 
     await client({
         url: '/User/Update',
@@ -84,7 +84,7 @@ export const updateUser = async (item) => {
 }
 
 export const deleteUser = async (id) => {
-    const result = new ResultOperation;
+    const result = new ResultOperation();
 
     await client({
         url: `/User/Delete/?id=${id}`,

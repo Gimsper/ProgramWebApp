@@ -14,7 +14,7 @@ const AuthProvider = ({ children }) => {
         if (!isAuthenticated && location.pathname === "") {
             navigate("/login", { replace: true });
         }
-    }, [navigate]);
+    }, [navigate, isAuthenticated, location]);
 
     const login = async (credentials) => {
         try {
