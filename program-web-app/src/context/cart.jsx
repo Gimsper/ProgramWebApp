@@ -6,12 +6,11 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
     const addToCart = (item) => {
-        console.log('Adding to cart:', item);
         setCart(prevCart => {
             const existingItem = prevCart.find(i => i.itemId === item.itemId);
             if (existingItem) {
                 return prevCart.map(i =>
-                i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+                    i.itemId === item.itemId ? { ...i, quantity: i.quantity + 1 } : i
                 );
             }
             return [...prevCart, { ...item, quantity: 1 }];
@@ -24,9 +23,9 @@ export const CartProvider = ({ children }) => {
                 return prevCart.filter(item => item.itemId !== itemId);
             }
             return prevCart.map(item => {
-                if (item.id === itemId) {
+                if (item.itemId === itemId) {
                     const newQuantity = item.quantity - 1;
-                    return newQuantity > 0 ? { ...item, quantity: newQuantity } : null;
+                    return newQuantity > 0 ? { ...item, quantity: item.quantity - 1 } : null;
                 }
                 return item;
             }).filter(Boolean);

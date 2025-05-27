@@ -69,7 +69,7 @@ const Cart = () => {
                                 <div className="quantity-controls">
                                     <button
                                         className="quantity-btn"
-                                        onClick={() => removeFromCart(item.id)}
+                                        onClick={() => removeFromCart(item.itemId)}
                                     >
                                     <FaMinus />
                                     </button>
@@ -84,7 +84,7 @@ const Cart = () => {
                             </div>
                             <button
                                 className="remove-btn"
-                                onClick={() => removeFromCart(item.id, true)}
+                                onClick={() => removeFromCart(item.itemId, true)}
                             >
                                 <FaTrash /> Eliminar
                             </button>

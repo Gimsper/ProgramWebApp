@@ -59,7 +59,7 @@ function Layout() {
         <Outlet />
       </main>
       <footer>
-        © 2024 Galeria. Todos los derechos reservados.
+        © 2025 Galeria. Todos los derechos reservados.
       </footer>
     </div>
   );
